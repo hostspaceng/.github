@@ -1,0 +1,15 @@
+name: Slack notification
+
+on: workflow_call
+
+jobs:  
+  slack-notify:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: craftech-io/slack-action@v1
+      with:
+        slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
+        slack_channel: github-notifications
+        slack_username: GitHub
+        status: failure
+        
